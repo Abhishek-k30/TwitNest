@@ -9,15 +9,15 @@ const Body = () => {
     const appRouter = createBrowserRouter([
         {
             path: "/",
-            element: <Home/>,
-            children:[
+            element: <Home />,
+            children: [
                 {
-                    path:"/",
-                    element:<Feed/>
+                    path: "/",
+                    element: <Feed />
                 },
                 {
-                    path:"/profile/:id",
-                    element:<Profile/>
+                    path: "/profile/:id",
+                    element: <Profile />
                 }
             ]
         },

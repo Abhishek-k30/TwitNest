@@ -20,7 +20,7 @@ const Login = () => {
     if (isLogin) {
       // login
       try {
-        const res = await axios.post(`${USER_API_END_POINT}/login`, { email, password }, {
+        const res = await axios.post(`${window.location.origin}/api/v1/user/login`, { email, password }, {
           headers: {
             'Content-Type': "application/json"
           },
@@ -38,7 +38,7 @@ const Login = () => {
     } else {
       // signup
       try {
-        const res = await axios.post(`${USER_API_END_POINT}/register`, { name, username, email, password }, {
+        const res = await axios.post(`${window.location.origin}/api/v1/user/register`, { name, username, email, password }, {
           headers: {
             'Content-Type': "application/json"
           },

@@ -2,7 +2,7 @@ import React from 'react';
 import { IoMdArrowBack } from "react-icons/io";
 import { Link, useParams } from 'react-router-dom';
 import Avatar from "react-avatar";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import useGetProfile from '../hooks/useGetProfile';
 import axios from "axios";
 import { USER_API_END_POINT } from '../utils/constant';
@@ -17,11 +17,11 @@ const Profile = () => {
     const dispatch = useDispatch();
 
     const followAndUnfollowHandler = async () => {
-        if(user.following.includes(id)){
+        if (user.following.includes(id)) {
             // unfollow
             try {
                 axios.defaults.withCredentials = true;
-                const res = await axios.post(`${USER_API_END_POINT}/unfollow/${id}`, {id:user?._id});
+                const res = await axios.post(`${window.location.origin}/api/v1/user/unfollow/${id}`, { id: user?._id });
                 console.log(res);
                 dispatch(followingUpdate(id));
                 dispatch(getRefresh());
@@ -30,12 +30,12 @@ const Profile = () => {
                 toast.error(error.response.data.message);
                 console.log(error);
             }
-            
-        }else{
+
+        } else {
             // follow
             try {
                 axios.defaults.withCredentials = true;
-                const res = await axios.post(`${USER_API_END_POINT}/follow/${id}`, {id:user?._id});
+                const res = await axios.post(`${window.location.origin}/api/v1/user/follow/${id}`, { id: user?._id });
                 console.log(res);
                 dispatch(followingUpdate(id));
                 dispatch(getRefresh());

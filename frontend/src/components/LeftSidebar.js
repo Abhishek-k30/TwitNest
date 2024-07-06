@@ -20,7 +20,7 @@ const LeftSidebar = () => {
     const dispatch = useDispatch();
     const logoutHandler = async () => {
         try {
-            const res = await axios.get(`${USER_API_END_POINT}/logout`);
+            const res = await axios.get(`${window.location.origin}/api/v1/user/logout`);
             dispatch(getUser(null));
             dispatch(getOtherUsers(null));
             dispatch(getMyProfile(null));

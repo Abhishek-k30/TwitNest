@@ -16,7 +16,7 @@ const CreatePost = () => {
     const submitHandler = async () => {
 
         try {
-            const res = await axios.post(`${TWEET_API_END_POINT}/create`, { description, id: user?._id }, {
+            const res = await axios.post(`${window.location.origin}/api/v1/tweet/create`, { description, id: user?._id }, {
                 headers: {
                     "Content-Type": "application/json"
                 },
